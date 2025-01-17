@@ -32,32 +32,19 @@
 #             print(j,end=" ")
 #         print()    
 # Pattern(10) 
-def Pattern1(n):
-    for i in range(n):
-         
-        
-        for k in range(i*2+1):
-            print("*",end=" ")
-        for l in range(n-i-1):
-            print(" ",end=" ")        
-
-        print()    
-Pattern1(4) 
 
 def Pattern2(n):
 
-    for i in range(n,0,-1):
-         
-       
-        for k in range(i*2-1):
-            print("*",end=" ")
-        for l in range(n-i):
-            print(" ",end=" ")  
-                   
+    for i in range(1, (2*n-1)+1):
+        s=i
+        if i>n:
+            s=2*n-i
+        for j in range(1,s+1):
+            print("*",end=" ")     
 
         print()    
 
-Pattern2(4) 
+Pattern2(5) 
 
 
 
