@@ -47,20 +47,30 @@ class MeraList:
         print(self.A[self.n-1])    
         self.n = self.n-1
 
+    def clear(self):
+        self.n = 0
+        self.size = 1
+
+    def find(self,item):
+        for i in range(self.n):
+            if self.A[i] == item:
+                return i
+        return "ValueError- Not in List"        
+
+             
+
 
         
 l=MeraList()
-print(len(l))
+
 l.append(1)
 l.append("hello")
 l.append(2.4)
 l.append(True)
 l.append(7)
 l.append(45)
-l.pop()
-l.pop()
-l.pop()
 print(l)
+print(l.find(45))
 
 
         
