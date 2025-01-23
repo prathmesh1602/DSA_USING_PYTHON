@@ -20,6 +20,12 @@ class MeraList:
             return self.A[index]
         else:
             return "Index Out of Range"
+    def __delitem__(self,pos):
+        if 0<= pos <self.n:
+            for i in range(pos,self.n-1):
+                self.A[i] = self.A[i+1]
+            self.n = self.n-1    
+
 
        
     def _create_array(self,capacity):
@@ -57,6 +63,25 @@ class MeraList:
                 return i
         return "ValueError- Not in List"        
 
+    def insert(self,pos,item):
+
+        if self.n == self.size:
+            self.__resize(self.size*2)
+
+        for i in  range(self.n,pos,-1) :
+            self.A[i] = self.A[i-1]
+
+        self.A[pos] = item
+        self.n = self.n +1    
+
+    def remove(self,item):
+        pos = self.find(item)
+        if type(pos) == int:
+            self.__delitem__(pos)
+        else:
+            return pos    
+
+
              
 
 
@@ -69,9 +94,10 @@ l.append(2.4)
 l.append(True)
 l.append(7)
 l.append(45)
+l.remove(2.4)
+l.remove(7)
+l.remove(7)
 print(l)
-print(l.find(45))
 
 
-        
-        
+
