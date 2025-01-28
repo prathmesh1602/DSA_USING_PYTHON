@@ -26,8 +26,6 @@ class MeraList:
                 self.A[i] = self.A[i+1]
             self.n = self.n-1    
 
-
-       
     def _create_array(self,capacity):
          return (capacity*ctypes.py_object)()
     
@@ -81,11 +79,6 @@ class MeraList:
         else:
             return pos    
 
-
-             
-
-
-        
 l=MeraList()
 
 l.append(1)

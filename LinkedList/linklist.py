@@ -55,14 +55,77 @@ class LinkList:
         if curr != None :
             new_node.next = curr.next
             curr.next = new_node
+            self.n = self.n+1
         else:
             return "Item Not Found" 
            
+    def clear(self):
+        self.head =None
+        self.n =0
 
-
-
-
+    def delete_head(self):
+         if self.head == None:
+             return "Empty Linked List"
+         self.head = self.head.next
+         self.n = self.n - 1
     
+    def pop(self):
+        if self.head == None:
+            return "Empty LL"
+        curr = self.head
+        if curr.next== None:
+            return self.delete_head()
+    
+        while curr.next.next !=None:
+            curr = curr.next
+            
+
+        # Now Curr is 2nd Last node of LL
+        curr.next = None
+        self.n = self.n -1     
+    
+    def remove(self,value):
+        if self.head == None:
+            return "Empty LL"
+        if self.head.data == value:
+            return self.delete_head()
+        curr = self.head
+
+        while curr.next != None:
+            if curr.next.data == value:
+                break
+            curr = curr.next
+        #Here we have 2 case
+        # case1 :- Item not found
+        if curr.next == None:
+            return "Not Found"
+        else:
+            curr.next = curr.next.next
+            self.n = self.n -1
+        # case2 :- Item found   
+    def search(self,item):
+        curr = self.head
+        pos = 0
+
+        while curr != None:
+            if curr.data == item:
+                return pos
+            curr = curr.next
+            pos = pos + 1
+
+        return "Item not found"  
+    
+    def __getitem__(self,index):
+        curr = self.head
+        pos = 0
+
+        while curr != None:
+            if pos == index:
+                return curr.data
+            curr = curr.next
+            pos = pos+1
+        
+        return "IndexError"
 
 l = LinkList()
 l.insert_head(1)
@@ -70,8 +133,6 @@ l.insert_head(2)
 l.insert_head(3)
 l.insert_head(4)
 l.insert_head(5)
-
-print(l)   
-l.insert_after(4,7)
-print(l.insert_after(21,5))
-print(l)
+print(l.search(5))
+print(l[5 ])
+ 
