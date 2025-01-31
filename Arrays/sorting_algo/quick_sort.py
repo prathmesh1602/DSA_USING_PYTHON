@@ -7,21 +7,17 @@ def quicksort(arr,left,right):
 
 
 def partition(arr,left,right): 
-    i = left
-    j = right - 1
+    i = left - 1
     pivot = arr[right]
 
-    while i<j:
-        while i < right and arr[i] < pivot:
-            i+=1
-        while j > left and arr[j]>= pivot:
-            j-=1 
-        if i < j:
+    for j in range(left,right):
+        if arr[j] <= pivot:
+            i =i+1
             arr[i],arr[j] = arr[j],arr[i]
-    if arr[i] > pivot:   
-        arr[i],arr[right] = arr[right],arr[i]
-    return i
+    arr[i+1],arr[right] = arr[right],arr[i+1]
+    return i+1        
 
+    
 
 arr =[5,8,1,2,2,6,3,9,9,10]
 quicksort(arr,0,len(arr)-1)
