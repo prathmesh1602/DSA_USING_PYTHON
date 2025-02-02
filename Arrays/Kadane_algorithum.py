@@ -8,7 +8,7 @@ def max_subaarray_sum(arr):
         if current_sum > max_sum:# compare with max_sum if currrent_sum greater tham max_sum than max_sum updated
             max_sum = current_sum
 
-        if current_sum < 0:# if the current_sum is less than means negativ number tham current_sum update to 0
+        if current_sum < 0:# if the current_sum is less than 0, negativ number tham current_sum update to 0
             current_sum = 0
 
     return max_sum

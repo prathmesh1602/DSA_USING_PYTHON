@@ -15,7 +15,7 @@ def pow(x,n):
         return 1 
     elif n<0:
         x=1/x
-        n=-n
+        n=-n # for convert negativ n to positiv n
     result = 1
     while n > 0 :
         if n %2 == 1:
