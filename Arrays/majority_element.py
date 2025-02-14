@@ -18,16 +18,16 @@ def majority_element(arr):
     candidate =  0
 
     for num in arr :
-        print('num',num)
+       
         if count == 0:
             candidate = num
-        print('candidate',candidate)    
+         
         if num == candidate:
             count+=1
-            print('count',count)    
+                
         else:
             count-=1
-            print('count',count)
+            
     return candidate
-arr = [2,2,1,1,1,2,2]
+arr = [2,2,1,1,1,2,2,1,1]
 print(majority_element(arr))                 
